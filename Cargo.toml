@@ -8,3 +8,4 @@ repository = "https://github.com/QsKue/prism"
 readme = "README.md"
 
 [dependencies]
+rustfft = { version = "6.4", default-features = false }

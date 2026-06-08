@@ -5,13 +5,18 @@
 //! the `maestro` engine all depend on it. It holds the primitives and common
 //! value types that would otherwise be duplicated across them.
 //!
-//! Today it provides the shared [`Latency`] currency every pipeline stage
-//! reports in. The heavier DSP primitives (a `Float` abstraction, a scratch
-//! `BufferPool`, cached FFT plans, windowing, framing) are distilled in here as
-//! the split progresses — see `docs/ROADMAP.md`.
+//! It provides the shared [`Latency`] currency every pipeline stage reports in,
+//! the [`Float`] numeric abstraction (`f32`/`f64`), and the [`buffer`] scratch
+//! pool / complex helpers the FFT-based stages share. More primitives (cached
+//! FFT plans, windowing, framing) are distilled in here as the split progresses
+//! — see `docs/ROADMAP.md`.
 //!
 //! [`reed`]: https://github.com/QsKue/reed
 
+mod float;
 mod latency;
 
+pub mod buffer;
+
+pub use float::Float;
 pub use latency::Latency;
